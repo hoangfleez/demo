@@ -21,7 +21,7 @@ const style = {
 };
 
 export default function BasicModal({ open, setOpen, id }) {
-  const [post, setPost] = useState({ title: "", body: "" });
+  const [post, setPost] = useState();
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
   const [successMessage, setSuccessMessage] = useState(null);

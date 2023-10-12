@@ -33,7 +33,6 @@ export default function CreatModal({ openCreat, setOpenCreat, setNewPosts }) {
   const handleBodyChange = (event) => {
     setBody(event.target.value);
   };
-
   const handleCreatePost = async () => {
     try {
       const response = await axios.post(
@@ -45,7 +44,9 @@ export default function CreatModal({ openCreat, setOpenCreat, setNewPosts }) {
         }
       );
 
-      setNewPosts(response.data);
+      const newPost = response.data;
+      setNewPosts((prevPosts) => [newPost, ...prevPosts]);
+
       setOpenCreat(false);
       setTitle("");
       setBody("");
